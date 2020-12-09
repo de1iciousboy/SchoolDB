@@ -9,6 +9,7 @@ CREATE TABLE class
   PRIMARY KEY (class_ID),
   FOREIGN KEY (type_ID) REFERENCES types_of_class(type_ID)
 );
+
 CREATE TABLE item
 (
   code_of_the_subject INT NOT NULL,
@@ -17,6 +18,7 @@ CREATE TABLE item
   emp_ID INT NOT NULL,
   FOREIGN KEY (emp_ID) REFERENCES staff(emp_ID)
 );
+
 CREATE TABLE position
 (
   pos_ID INT NOT NULL,
@@ -26,6 +28,7 @@ CREATE TABLE position
   requirements INT NOT NULL,
   PRIMARY KEY (pos_ID)
 );
+
 CREATE TABLE schedule
 (
   date INT NOT NULL,
@@ -36,6 +39,7 @@ CREATE TABLE schedule
   class_ID INT NOT NULL,
   FOREIGN KEY (class_ID) REFERENCES class(class_ID)
 );
+
 CREATE TABLE staff
 (
   emp_ID INT NOT NULL,
@@ -51,6 +55,7 @@ CREATE TABLE staff
   FOREIGN KEY (pos_ID) REFERENCES position(pos_ID),
   FOREIGN KEY (class_ID) REFERENCES class(class_ID)
 );
+
 CREATE TABLE student
 (
   name INT NOT NULL,
@@ -63,6 +68,7 @@ CREATE TABLE student
   class_ID INT NOT NULL,
   FOREIGN KEY (class_ID) REFERENCES class(class_ID)
 );
+
 CREATE TABLE types_of_class
 (
   type_ID INT NOT NULL,
