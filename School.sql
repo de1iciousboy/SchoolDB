@@ -1,12 +1,3 @@
---
--- Файл сгенерирован с помощью SQLiteStudio v3.2.1 в Ср дек 9 13:01:56 2020
---
--- Использованная кодировка текста: System
---
-PRAGMA foreign_keys = off;
-BEGIN TRANSACTION;
-
--- Таблица: class
 CREATE TABLE class
 (
   year_of_study INT NOT NULL,
@@ -18,8 +9,6 @@ CREATE TABLE class
   PRIMARY KEY (class_ID),
   FOREIGN KEY (type_ID) REFERENCES types_of_class(type_ID)
 );
-
--- Таблица: item
 CREATE TABLE item
 (
   code_of_the_subject INT NOT NULL,
@@ -28,8 +17,6 @@ CREATE TABLE item
   emp_ID INT NOT NULL,
   FOREIGN KEY (emp_ID) REFERENCES staff(emp_ID)
 );
-
--- Таблица: position
 CREATE TABLE position
 (
   pos_ID INT NOT NULL,
@@ -39,8 +26,6 @@ CREATE TABLE position
   requirements INT NOT NULL,
   PRIMARY KEY (pos_ID)
 );
-
--- Таблица: schedule
 CREATE TABLE schedule
 (
   date INT NOT NULL,
@@ -51,8 +36,6 @@ CREATE TABLE schedule
   class_ID INT NOT NULL,
   FOREIGN KEY (class_ID) REFERENCES class(class_ID)
 );
-
--- Таблица: staff
 CREATE TABLE staff
 (
   emp_ID INT NOT NULL,
@@ -68,8 +51,6 @@ CREATE TABLE staff
   FOREIGN KEY (pos_ID) REFERENCES position(pos_ID),
   FOREIGN KEY (class_ID) REFERENCES class(class_ID)
 );
-
--- Таблица: student
 CREATE TABLE student
 (
   name INT NOT NULL,
@@ -82,8 +63,6 @@ CREATE TABLE student
   class_ID INT NOT NULL,
   FOREIGN KEY (class_ID) REFERENCES class(class_ID)
 );
-
--- Таблица: types_of_class
 CREATE TABLE types_of_class
 (
   type_ID INT NOT NULL,
@@ -91,6 +70,5 @@ CREATE TABLE types_of_class
   description INT NOT NULL,
   PRIMARY KEY (type_ID)
 );
-
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;
